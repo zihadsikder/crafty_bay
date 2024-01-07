@@ -1,4 +1,4 @@
-import 'package:crafty_bay/presentation/ui/screens/veryfy_email_screen.dart';
+import 'package:crafty_bay/presentation/ui/screens/Auth/veryfy_email_screen.dart';
 import 'package:crafty_bay/presentation/ui/utility/assets_path.dart';
 import 'package:crafty_bay/presentation/ui/widgets/app_logo.dart';
 import 'package:flutter/material.dart';
