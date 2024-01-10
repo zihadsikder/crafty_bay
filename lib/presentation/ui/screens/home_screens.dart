@@ -1,10 +1,13 @@
+import 'package:crafty_bay/presentation/state_holder/main_bottom_nav_controller.dart';
 import 'package:crafty_bay/presentation/ui/utility/assets_path.dart';
-import 'package:crafty_bay/presentation/ui/utility/colors.dart';
 import 'package:crafty_bay/presentation/ui/widgets/Home/categories_item.dart';
 import 'package:crafty_bay/presentation/ui/widgets/Home/circle_icon_buttton.dart';
+import 'package:crafty_bay/presentation/ui/widgets/Home/product_cart_item.dart';
 import 'package:crafty_bay/presentation/ui/widgets/home/banner_carousel.dart';
 import 'package:crafty_bay/presentation/ui/widgets/home/section_title.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -36,17 +39,19 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SectionTitle(
                 title: 'All Categories',
-                onTapSeeAll: () {},
+                onTapSeeAll: () {
+                  Get.find<MainBottomNavController>().changeIndex(1);
+                },
               ),
-          categoryList,
-          const SizedBox(
+              categoryList,
+              const SizedBox(
                 height: 8,
               ),
               SectionTitle(
                 title: 'Popular',
                 onTapSeeAll: () {},
               ),
-              popularProductList,
+              producCarttList,
               const SizedBox(
                 height: 8,
               ),
@@ -54,6 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: 'Spacial',
                 onTapSeeAll: () {},
               ),
+              producCarttList,
               const SizedBox(
                 height: 16,
               ),
@@ -61,6 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: 'New',
                 onTapSeeAll: () {},
               ),
+              producCarttList,
             ],
           ),
         ),
@@ -70,42 +77,40 @@ class _HomeScreenState extends State<HomeScreen> {
 
   SizedBox get categoryList {
     return SizedBox(
-          height: 120,
-          child: ListView.separated(
-            itemCount: 10,
-            primary: false,
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context,index) {
-              return const CategoriesItem(
-                  iconData: Icons.computer,
-                  title: 'Electronics');
-            }, separatorBuilder: (_, __) {
-              return const SizedBox(width: 8.0,);
-          },
-          ),
-        );
-  }
-  SizedBox get popularProductList {
-    return SizedBox(
       height: 120,
       child: ListView.separated(
         itemCount: 10,
         primary: false,
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context,index) {
-          return Card(
-
-            elevation: 0,
-            color: AppColors.primaryColor.withOpacity(0.1),
-            child: Image.asset(AssetsPath.popular,width: 80,),
-
-
+        itemBuilder: (context, index) {
+          return const CategoryItem();
+        },
+        separatorBuilder: (_, __) {
+          return const SizedBox(
+            width: 8.0,
           );
-        }, separatorBuilder: (_, __) {
-        return const SizedBox(width: 8.0,);
-      },
+        },
+      ),
+    );
+  }
+
+  SizedBox get producCarttList {
+    return SizedBox(
+      height: 170,
+      child: ListView.separated(
+        itemCount: 10,
+        primary: false,
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return const ProductCartItem();
+        },
+        separatorBuilder: (_, __) {
+          return const SizedBox(
+            width: 8.0,
+          );
+        },
       ),
     );
   }
@@ -137,7 +142,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
-      title: Image.asset(AssetsPath.navLogo,width: 110,),
+      title: Image.asset(
+        AssetsPath.navLogo,
+        width: 110,
+      ),
       actions: [
         CircleIconButton(
           onTap: () {},
@@ -161,3 +169,5 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+
