@@ -55,6 +55,17 @@ class AppThemeData{
                 letterSpacing: 0.5,
               )
           )
+      ),
+      textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            foregroundColor: AppColors.primaryColor,
+          )
+      ),
+      appBarTheme: const AppBarTheme(
+          titleTextStyle: TextStyle(fontSize: 18, color: Colors.black),
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black54,
+          elevation: 5
       )
   );
 }

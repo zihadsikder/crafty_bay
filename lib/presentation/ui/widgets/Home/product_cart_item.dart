@@ -26,7 +26,7 @@ class ProductCartItem extends StatelessWidget {
                   topRight: Radius.circular(12),
                 ),
                 child: Image.asset(
-                  AssetsPath.popular,
+                  AssetsPath.product,
                   width: 100,
                   height: 100,
                 )),
