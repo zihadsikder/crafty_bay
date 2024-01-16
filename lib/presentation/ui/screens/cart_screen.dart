@@ -1,6 +1,6 @@
 import 'package:crafty_bay/presentation/state_holder/main_bottom_nav_controller.dart';
 import 'package:crafty_bay/presentation/ui/utility/colors.dart';
-import 'package:crafty_bay/presentation/ui/widgets/product_details/cart_product_item.dart';
+import 'package:crafty_bay/presentation/ui/widgets/carts/cart_product_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
