@@ -8,7 +8,7 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 
 
 class PinVerificationScreens extends StatefulWidget {
-  const PinVerificationScreens({super.key});
+  const PinVerificationScreens({super.key, required String email});
 
   @override
   State<PinVerificationScreens> createState() => _PinVerificationScreensState();

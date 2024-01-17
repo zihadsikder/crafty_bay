@@ -21,6 +21,7 @@ dependencies:
   intl: ^0.18.1
   carousel_slider: ^4.2.1
   item_count_number_button: ^1.9.2
+  http: ^1.1.0
 
 dev_dependencies:
   flutter_test:
