@@ -68,9 +68,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                         width: double.infinity,
                         child: Visibility(
                           visible: controller.inProgress == false,
-                          replacement: const Center(
-                            child: CircularProgressIndicator(),
-                          ),
+                          replacement: const CircularProgressIndicator(),
                           child: ElevatedButton(
                             onPressed: () async {
                               if (_formKey.currentState!.validate()) {
@@ -105,3 +103,4 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
     );
   }
 }
+

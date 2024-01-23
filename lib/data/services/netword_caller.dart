@@ -4,8 +4,11 @@ import 'package:crafty_bay/data/models/response_data.dart';
 import 'package:http/http.dart';
 
 class NetworkCaller {
-  Future<ResponseData> getRequest(String url) async {
-    final Response response = await get(Uri.parse(url));
+  Future<ResponseData> getRequest(String url, {String? token} )async {
+    final Response response = await get(Uri.parse(url), headers: {
+      'token' : token.toString(),
+      'Content-type': 'application/json'
+    });
     if (response.statusCode == 200) {
       final decodedResponse = jsonDecode(response.body);
       if (decodedResponse['msg'] == 'success') {
