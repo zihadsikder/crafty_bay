@@ -144,6 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
       elevation: 0,
       title: Image.asset(
         AssetsPath.navLogo,
+        //'assets/images/logo_nav.png'
         width: 110,
       ),
       actions: [

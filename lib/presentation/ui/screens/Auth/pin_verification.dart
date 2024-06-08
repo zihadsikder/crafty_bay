@@ -80,36 +80,35 @@ class _PinVerificationScreensState extends State<PinVerificationScreens> {
                   width: double.infinity,
                   child: GetBuilder<VerifyOTPController>(
                     builder: (verifyOtpController) {
-                      return Visibility(
-                        visible: verifyOtpController.inProgress == false,
-                        replacement: const CircularProgressIndicator(),
-                        child: ElevatedButton(
-                          onPressed: () async {
-                            if(_formKey.currentState!.validate()){
-                              final bool response  = await verifyOtpController.verifyOTP(
-                                  widget.email, _otpTEController.text);
-                              if(response){
-                                if(verifyOtpController.shouldNavigateCompleteProfile){
-                                  Get.to(const CompleteProfileScreens());
-                                }else{
-                                  Get.offAll(MainBottomNavController());
-                                }
-
-                              }else{
-                                Get.showSnackbar(GetSnackBar(
-                                    title: 'Send OTP Fail',
-                                  message: verifyOtpController.errorMessage,
-                                  duration: const Duration(seconds: 2),
-                                  isDismissible: true,
-                                ));
-
-                              }
-
-                            }
-
-                          },
-                          child: const Text('Next'),
-                        ),
+                      return ElevatedButton(
+                        onPressed: (){
+                          Get.to(()=> (const CompleteProfileScreens()));
+                        },
+                        // onPressed: () async {
+                        //   if(_formKey.currentState!.validate()){
+                        //     final bool response  = await verifyOtpController.verifyOTP(
+                        //         widget.email, _otpTEController.text);
+                        //     if(response){
+                        //       if(verifyOtpController.shouldNavigateCompleteProfile){
+                        //         Get.to(const CompleteProfileScreens());
+                        //       }else{
+                        //         Get.offAll(MainBottomNavController());
+                        //       }
+                        //
+                        //     }else{
+                        //       Get.showSnackbar(GetSnackBar(
+                        //           title: 'Send OTP Fail',
+                        //         message: verifyOtpController.errorMessage,
+                        //         duration: const Duration(seconds: 2),
+                        //         isDismissible: true,
+                        //       ));
+                        //
+                        //     }
+                        //
+                        //   }
+                        //
+                        // },
+                        child: const Text('Next'),
                       );
                     }
                   ),

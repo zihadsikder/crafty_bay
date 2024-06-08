@@ -12,31 +12,31 @@ class ProductCartItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-       Get.to(()=> const ProductDetailsScreen());
+      onTap: () {
+        Get.to(() => const ProductDetailsScreen());
       },
       borderRadius: BorderRadius.circular(16),
       child: SizedBox(
-        height:180,
+        height: 180,
         width: 130,
         child: Card(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
-          // elevation: 0,
-          // color: AppColors.primaryColor.withOpacity(0.1),
           child: Column(
             children: [
               ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(12),
-                    topRight: Radius.circular(12),
-                  ),
-                  child: Image.asset(
-                    AssetsPath.product,
-                    width: 100,
-                    height: 100,
-                  )),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(12),
+                  topRight: Radius.circular(12),
+                ),
+                child: Image.asset(
+                  AssetsPath.product,
+                  width: 60,
+                  height: 100,
+                  fit: BoxFit.cover,
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
@@ -45,32 +45,42 @@ class ProductCartItem extends StatelessWidget {
                     const Text(
                       'Iphone 15',
                       style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black45,
-                          fontSize: 16,overflow: TextOverflow.ellipsis),
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black45,
+                        fontSize: 14,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
+                    const SizedBox(height: 1.0),
                     Row(
-                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text('\$15',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                color: AppColors.primaryColor,
-                                fontSize: 12)),
-                        const SizedBox(width:8.0),
-                        const Wrap(children: [
-                          Icon(
-                            Icons.star,
-                            size: 12,
-                            color: Colors.amber,
+                        const Text(
+                          '\$15',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.primaryColor,
+                            fontSize: 12,
                           ),
-                          Text('4.8',
+                        ),
+                        const SizedBox(width: 8.0),
+                        const Wrap(
+                          children: [
+                            Icon(
+                              Icons.star,
+                              size: 12,
+                              color: Colors.amber,
+                            ),
+                            Text(
+                              '4.8',
                               style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.black45,
-                                  fontSize: 12)),
-                        ],),
-                        const SizedBox(width:8.0),
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black45,
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(width: 8.0),
                         Card(
                           color: AppColors.primaryColor,
                           shape: RoundedRectangleBorder(
@@ -78,11 +88,15 @@ class ProductCartItem extends StatelessWidget {
                           ),
                           child: const Padding(
                             padding: EdgeInsets.all(2.0),
-                            child: Icon(Icons.favorite_outline,size: 12,color: Colors.white,),
+                            child: Icon(
+                              Icons.favorite_outline,
+                              size: 12,
+                              color: Colors.white,
+                            ),
                           ),
-                        )
+                        ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
